@@ -1,0 +1,6 @@
+.chat_message_alert {
+  background-color: var(--chat-bg-theme-color);
+  padding: 2px 5px;
+  border-radius: 20px;
+  font-size: 0.9em;
+}

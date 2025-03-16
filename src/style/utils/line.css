@@ -1,0 +1,16 @@
+hr {
+  border: 1px solid var(--hr-line-bd-color);
+  margin: 0;
+}
+
+hr.h {
+  width: 100%;
+}
+
+hr.v {
+  height: 100%;
+}
+
+:root {
+  --hr-line-bd-color: light-dark(#606060, #999999);
+}

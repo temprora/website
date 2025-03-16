@@ -1,0 +1,30 @@
+@import url('../../style/utils/link.css');
+
+.container_header {
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-color-opa) !important;
+  backdrop-filter: blur(10px);
+}
+
+.header {
+  height: 80px;
+}
+
+.header_content {
+  width: 100%;
+  align-items: center;
+}
+
+.logo a {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.header_links > * {
+  color: var(--text-opa-color);
+
+  &:hover {
+    color: var(--text-color);
+  }
+}

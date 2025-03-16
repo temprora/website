@@ -1,0 +1,24 @@
+button {
+  background-color: inherit;
+  border: 1px solid var(--btn-border-color);
+  padding: 10px 20px;
+  border-radius: 20px;
+  user-select: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--btn-hover-bg-color);
+}
+
+button:active {
+  background-color: var(--btn-active-bg-color);
+  border-color: var(--btn-active-border-color);
+}
+
+:root {
+  --btn-hover-bg-color: light-dark(#d9dbf3, #2e2a8c);
+  --btn-border-color: light-dark(#2e2a8c, #6e7ded);
+  --btn-active-border-color: light-dark(#2545c5, #8faeff);
+  --btn-active-bg-color: light-dark(#c0bef1, #1c235a);
+}
