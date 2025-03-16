@@ -1,0 +1,22 @@
+:root {
+  color-scheme: light dark;
+}
+
+:root {
+  --bg-color: light-dark(#ffffff, #222222);
+  --bg-opa-color: light-dark(#ffffff80, #22222280);
+  --bg-hover-color: light-dark(#e6e6e6, #353535);
+}
+
+:root {
+  --bd-color: light-dark(#dddddd, #555555);
+}
+
+:root {
+  --text-color: light-dark(#111111, #eeeeee);
+  --text-opa-color: light-dark(#00000080, #ffffff80);
+}
+
+:root {
+  --selection-bg-color: light-dark(#ffffff33, #00000033);
+}

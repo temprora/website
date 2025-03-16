@@ -1,0 +1,55 @@
+.chat_background {
+  z-index: -1;
+}
+
+.chat_background::after {
+  content: '';
+  background-color: var(--bg-opa-color);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.chat_background_circle {
+  position: fixed;
+  aspect-ratio: 1;
+  height: var(--chat-background-circle-size);
+  border-radius: 50%;
+  filter: blur(200px);
+  opacity: 0.6;
+}
+
+.chat_background_circle:nth-child(1) {
+  background-color: var(--chat-background-circle-1-color);
+  top: 0;
+  left: 0;
+  transform: translate(-20%, -20%);
+}
+
+.chat_background_circle:nth-child(2) {
+  background-color: var(--chat-background-circle-2-color);
+  top: 0;
+  right: 0;
+}
+
+.chat_background_circle:nth-child(3) {
+  background-color: var(--chat-background-circle-3-color);
+  bottom: 0;
+  right: 0;
+  transform: translate(30%, 30%);
+}
+
+.chat_background_circle:nth-child(4) {
+  background-color: var(--chat-background-circle-4-color);
+  bottom: 0;
+  left: 0;
+  transform: translate(-10%, 50%);
+}
+
+:root {
+  --chat-background-circle-size: max(400px, 80%);
+  --chat-background-circle-1-color: light-dark(#93c5fd, #1e3a8a);
+  --chat-background-circle-2-color: light-dark(#60a5fa, #2563eb);
+  --chat-background-circle-3-color: light-dark(#3b82f6, #2563eb);
+  --chat-background-circle-4-color: light-dark(#2563eb, #60a5fa);
+}

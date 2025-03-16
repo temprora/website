@@ -1,0 +1,7 @@
+.error_text {
+  color: var(--error-text-color);
+}
+
+:root {
+  --error-text-color: light-dark(#fa3c3c, #e07d7d);
+}

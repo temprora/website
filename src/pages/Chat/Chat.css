@@ -1,0 +1,32 @@
+@import url('../../style/utils/icon.css');
+
+.chat_window {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden auto;
+  scroll-behavior: smooth;
+  isolation: isolate;
+}
+
+.chat_window_con {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 auto;
+  width: min(var(--chat-window-con-width), 100%);
+}
+
+@media (max-width: 768px) {
+  .chat_window_con {
+    padding: 0 10px;
+  }
+}
+
+:root {
+  --chat-window-con-width: 777px;
+  --chat-bg-color: light-dark(#583eff, #2f1daa);
+  --chat-bd-color: light-dark(#5036f6, #9f94e8);
+  --chat-bg-theme-color: light-dark(#d2d2d2, #363636);
+  --chat-bg-opa-color: light-dark(#583eff80, #2f1daa80);
+}

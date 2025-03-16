@@ -1,0 +1,22 @@
+.input_area {
+  width: 100%;
+}
+
+label {
+  font-size: 0.9em;
+  color: var(--text-opa-color);
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: var(--input-bg-color);
+  border-radius: 10px;
+  padding: 8px 5px;
+  width: 100%;
+}
+
+:root {
+  --input-bg-color: light-dark(#d2d2d2, #363636);
+  --input-bg-hover-color: light-dark(#b8b8b8, #3c3c3c);
+}

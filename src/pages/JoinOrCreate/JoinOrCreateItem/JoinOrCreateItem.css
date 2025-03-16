@@ -1,0 +1,11 @@
+.join_or_create_item {
+  width: 50%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid var(--bd-color);
+  user-select: none;
+
+  &:hover {
+    background-color: var(--bg-hover-color);
+  }
+}

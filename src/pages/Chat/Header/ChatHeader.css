@@ -1,0 +1,24 @@
+@import url('../../../style/utils/line.css');
+
+.chat_header {
+  position: sticky;
+  top: 0;
+  cursor: pointer;
+  height: var(--chat-header-height);
+  background-color: var(--bg-opa-color);
+  backdrop-filter: blur(10px);
+}
+
+.chat_header_alert_copy_btn {
+  min-height: 100%;
+  padding: 0 10px;
+  border-radius: 10px;
+
+  & .icon {
+    --icon-size: 15px;
+  }
+}
+
+:root {
+  --chat-header-height: 40px;
+}

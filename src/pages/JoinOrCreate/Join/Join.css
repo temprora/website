@@ -1,0 +1,10 @@
+.join_back_link {
+  color: var(--text-opa-color);
+  padding: 5px 0;
+  border-radius: 20px;
+
+  &:hover {
+    color: var(--text-color);
+    background-color: var(--bg-hover-color);
+  }
+}

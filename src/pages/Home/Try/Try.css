@@ -1,0 +1,42 @@
+@import url('../../../style/utils/animations.css');
+
+.home_about {
+  height: 100%;
+}
+
+.try_img {
+  height: var(--try-img-size);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin-right: 20px;
+  scale: 0.7;
+  opacity: 0;
+  filter: blur(20px);
+  animation: scaleTo1 0.5s ease forwards, opaTo1 0.5s ease forwards,
+    filterBlurTo0 0.5s ease forwards;
+}
+
+.try_btn {
+  width: calc(min(var(--try-img-size), 100%) + 40px);
+  opacity: 0;
+  transform: translateY(100%);
+  animation: opaTo1 0.5s 0.5s ease forwards,
+    translateYTo0 0.5s 0.5s ease forwards;
+
+  & > button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .try_img {
+    width: var(--try-img-size);
+    height: var(--try-img-size);
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}
+
+:root {
+  --try-img-size: 300px;
+}
