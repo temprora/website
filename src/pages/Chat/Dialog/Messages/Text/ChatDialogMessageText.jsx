@@ -1,4 +1,4 @@
-import { timeToDate } from '../../../../../script/convert/time'
+import { timeToTime } from '../../../../../script/convert/time'
 import './ChatDialogMessageText.css'
 
 export default function ChatDialogMessageText({ message }) {
@@ -10,7 +10,7 @@ export default function ChatDialogMessageText({ message }) {
             <div className="chat_message_header list_x d_f_jc_sb">
               <b className="chat_message_author">{message?.author}</b>
               <div className="chat_message_date">
-                {timeToDate(message?.date)}
+                {timeToTime(message?.date)}
               </div>
             </div>
             <hr className="x" />

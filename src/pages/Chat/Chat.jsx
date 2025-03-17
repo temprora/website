@@ -16,6 +16,7 @@ export default function Chat() {
     title: 'Chat title',
     messages: [],
     myMessagesQuantity: 0,
+    scrollBottom: 0,
   })
   const navigator = useNavigate()
   const chatWindowRef = useRef()
@@ -25,10 +26,10 @@ export default function Chat() {
     if (!chatId) return navigator('/')
 
     const name = getFromSessionStorage('name') || 'Anonymous'
-    setChat((prevChat) => ({
-      ...prevChat,
+    setChat((prev) => ({
+      ...prev,
       id: chatId,
-      user: { ...prevChat.user, name },
+      user: { ...prev.user, name },
     }))
   }, [])
 
@@ -37,9 +38,22 @@ export default function Chat() {
       chatWindowRef.current.scrollTop = chatWindowRef.current.scrollHeight
   }, [chat.myMessagesQuantity])
 
+  function handleScroll(e) {
+    const { scrollTop, scrollHeight, clientHeight } = e.target
+
+    setChat({
+      ...chat,
+      scrollBottom: scrollHeight - (scrollTop + clientHeight),
+    })
+  }
+
   return (
-    <ChatContext.Provider value={{ chat, setChat }}>
-      <div className="chat_window d_f_jc_ce" ref={chatWindowRef}>
+    <ChatContext.Provider value={{ chat, setChat, chatWindowRef }}>
+      <div
+        className="chat_window d_f_jc_ce"
+        ref={chatWindowRef}
+        onScroll={handleScroll}
+      >
         <ChatBackgroud />
         <ChatHeader />
         <div className="chat_window_con">

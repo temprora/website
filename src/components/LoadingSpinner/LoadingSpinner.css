@@ -9,6 +9,11 @@
   animation: spin 1s linear infinite;
 }
 
+.loading_spinner_text {
+  font-size: 0.9em;
+  color: var(--text-opa-color);
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

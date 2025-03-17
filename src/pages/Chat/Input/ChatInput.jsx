@@ -1,12 +1,13 @@
 import { useContext, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ChatContext } from '../ChatContext'
-import SendIcon from '../../../assets/icons/send.svg?react'
 import { sendMessage, socket } from '../../../module/chat'
+import SendIcon from '../../../assets/icons/send.svg?react'
+import DownArrowIcon from '../../../assets/icons/down_arrow.svg?react'
 import './ChatInput.css'
 
 export default function ChatInput() {
-  const { chat, setChat } = useContext(ChatContext)
+  const { chat, setChat, chatWindowRef } = useContext(ChatContext)
   const [inputMessage, setInputMessage] = useState('')
   const navigator = useNavigate()
 
@@ -49,19 +50,36 @@ export default function ChatInput() {
     }
   }
 
+  function scrollDown() {
+    chatWindowRef.current.scrollTop = chatWindowRef.current.scrollHeight
+  }
+
   return (
     <>
       <div className="chat_input list_x">
-        <textarea
-          autoFocus
-          placeholder="Message"
-          className="chat_input_con_textarea"
-          value={inputMessage}
-          onChange={(e) => setInputMessage(e.target.value)}
-          onKeyDown={handleKeyDown}
-        ></textarea>
-        <div className="chat_input_btn_con" onClick={send}>
-          <div className="chat_send_btn d_f_ce" hidden={!inputMessage}>
+        <div className="chat_input_con">
+          <textarea
+            autoFocus
+            placeholder="Message"
+            className="chat_input_con_textarea"
+            value={inputMessage}
+            onChange={(e) => setInputMessage(e.target.value)}
+            onKeyDown={handleKeyDown}
+          ></textarea>
+        </div>
+        <div className="chat_input_btn_con list_y">
+          <div
+            className="chat_input_btn chat_down_btn d_f_ce"
+            hidden={chat.scrollBottom < 300}
+            onClick={scrollDown}
+          >
+            <DownArrowIcon className="icon" />
+          </div>
+          <div
+            className="chat_input_btn chat_send_btn d_f_ce"
+            hidden={!inputMessage}
+            onClick={send}
+          >
             <SendIcon className="icon" />
           </div>
         </div>

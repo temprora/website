@@ -9,7 +9,7 @@
 
 .message {
   width: max-content;
-  width: max(220px, 30%);
+  width: 400px;
   max-width: 95%;
   padding: 5px 10px;
   border-radius: 20px;

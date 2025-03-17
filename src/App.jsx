@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer'
 import './style/App.css'
 
 const Home = lazy(() => import('./pages/Home/Home'))
+const Join = lazy(() => import('./pages/Join/Join'))
 const JoinOrCreate = lazy(() => import('./pages/JoinOrCreate/JoinOrCreate'))
 const Chat = lazy(() => import('./pages/Chat/Chat'))
 
@@ -29,6 +30,7 @@ export default function App() {
         <Suspense fallback={<Loading />}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/join" element={<Join />} />
             <Route path="/join-or-create/*" element={<JoinOrCreate />} />
             <Route path="/chat" element={<Chat />} />
           </Routes>
