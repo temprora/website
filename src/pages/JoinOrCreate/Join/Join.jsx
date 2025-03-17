@@ -3,9 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../../components/Button/Button'
 import Input from '../../../components/Input/Input'
 import ErrorText from '../../../components/ErrorText/ErrorText'
-import { joinChat } from '../../../module/chat'
 import { validChatId } from '../../../script/validator'
-import { saveToSessionStorage } from '../../../script/sessionStorage'
 import './Join.css'
 
 export default function Join() {
@@ -17,11 +15,7 @@ export default function Join() {
     e.preventDefault()
     if (!validChatId(chatId)) return setError('Invalid chat id')
 
-    const joinedChatId = await joinChat(chatId)
-
-    saveToSessionStorage('chatId', joinedChatId)
-
-    if (joinedChatId) navigation('/chat')
+    navigation('/join?room=' + chatId)
   }
 
   return (

@@ -1,29 +1,26 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner'
 import { createChat } from '../../../module/chat'
 import { saveToSessionStorage } from '../../../script/sessionStorage'
 
 export default function Create() {
-  const [joined, setJoined] = useState(false)
   const navigation = useNavigate()
 
   useEffect(() => {
-    async function join() {
+    async function create() {
       const chatId = await createChat()
-
-      setJoined(chatId)
       saveToSessionStorage('chatId', chatId)
 
       if (chatId) navigation('/chat')
     }
-    join()
+    create()
   }, [])
 
   return (
     <>
       <div className="d_f_ce">
-        {!joined && <LoadingSpinner />}
+        <LoadingSpinner text="Creating chat" />
       </div>
     </>
   )
