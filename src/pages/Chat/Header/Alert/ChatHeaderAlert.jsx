@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { QRCodeSVG } from 'qrcode.react'
 import Alert from '../../../../components/Alert/Alert'
 import Input from '../../../../components/Input/Input'
 import Button from '../../../../components/Button/Button'
@@ -67,6 +68,25 @@ export default function ChatHeaderAlert({ setShowAlert }) {
               >
                 <ShareIcon className="icon" />
               </Button>
+            </div>
+          </div>
+          <div className="d_f_ce">
+            <div className="chat_header_alert_qr_code">
+              <QRCodeSVG
+                value={shareUrl}
+                title={'Temprora QR Code'}
+                size={200}
+                bgColor={'transparent'}
+                fgColor={'#7f75e2'}
+                level={'L'}
+                imageSettings={{
+                  src: 'https://temprora.web.app/assets/temprora-XusK7Al3.jpg',
+                  height: 50,
+                  width: 50,
+                  opacity: 1,
+                  excavate: true,
+                }}
+              />
             </div>
           </div>
           <hr className="x" />

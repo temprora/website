@@ -1,5 +1,6 @@
 .chat_background {
   z-index: -1;
+  pointer-events: none;
 }
 
 .chat_background::after {
