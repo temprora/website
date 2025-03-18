@@ -16,7 +16,7 @@ import './ChatHeaderAlert.css'
 export default function ChatHeaderAlert({ setShowAlert }) {
   const { chat } = useContext(ChatContext)
   const shareUrl = useRef(
-    `${window.location.host}/join?room=${chat?.id}`
+    `${window.location.origin}/join?room=${chat?.id}`
   ).current
   const useNavigator = useNavigate()
 
