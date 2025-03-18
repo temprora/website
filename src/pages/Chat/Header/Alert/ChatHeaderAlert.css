@@ -16,3 +16,13 @@
     }
   }
 }
+
+.chat_header_alert_qr_code {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: var(--qr-code-bg-color);
+}
+
+:root {
+  --qr-code-bg-color: light-dark(#d2d2d2, #363636);
+}
