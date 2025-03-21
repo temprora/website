@@ -16,7 +16,7 @@ export default function ChatInput() {
     file: {},
   })
   const fileInput = useRef()
-  const navigator = useNavigate()
+  const navigate = useNavigate()
 
   function attach(e) {
     const file = e.target.files[0]
@@ -35,8 +35,8 @@ export default function ChatInput() {
   }
 
   async function send() {
-    if (!userMessage) return
-    if (!chat.id) navigator('/')
+    if (!chat.id) navigate('/')
+    if (!(userMessage.message || userMessage.file?.data)) return
 
     const newMessage = {
       author: chat.user.name,

@@ -20,12 +20,12 @@ export default function Chat() {
     myMessagesQuantity: 0,
     scrollBottom: 0,
   })
-  const navigator = useNavigate()
+  const navigate = useNavigate()
   const chatWindowRef = useRef()
 
   useEffect(() => {
     const chatId = getRoomId()
-    if (!chatId) return navigator('/')
+    if (!chatId) return navigate('/')
 
     const name = getFromSessionStorage('name') || 'Anonymous'
     setChat((prev) => ({

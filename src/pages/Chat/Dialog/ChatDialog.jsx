@@ -39,6 +39,18 @@ export default function ChatDialog() {
     return () => socket.off('user-left', handleUserLeft)
   }, [])
 
+  useEffect(() => {
+    function handleMessageReceive(message) {
+      setChat((prev) => ({
+        ...prev,
+        messages: [...prev.messages, message],
+      }))
+    }
+
+    socket.on('message-receive', handleMessageReceive)
+    return () => socket.off('message-receive', handleMessageReceive)
+  }, [])
+
   return (
     <>
       <div className="chat_dialog">
