@@ -1,12 +1,23 @@
 @import url('../../../style/utils/line.css');
 
 .chat_header {
+  display: flex;
+  flex-direction: column;
   position: sticky;
   top: 0;
   cursor: pointer;
   height: var(--chat-header-height);
   background-color: var(--bg-opa-color);
   backdrop-filter: blur(10px);
+}
+
+.chat_header_title {
+  margin: 0;
+}
+
+.chat_header_users_quantity {
+  font-size: 0.9em;
+  color: var(--text-opa-color);
 }
 
 .chat_header_alert_copy_btn {

@@ -1,0 +1,14 @@
+.chat_alert_are_you_sure_text {
+  font-size: 0.9em;
+}
+
+.chat_alert_are_you_sure_btn {
+  width: 50%;
+
+  &.leave_btn {
+    --btn-hover-bg-color: light-dark(#f3d9d9, #8c2a2a);
+    --btn-border-color: light-dark(#8c2a2a, #ed6e6e);
+    --btn-active-border-color: light-dark(#c52525, #ff8f8f);
+    --btn-active-bg-color: light-dark(#f1bebe, #5a1c1c);
+  }
+}

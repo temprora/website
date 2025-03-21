@@ -1,10 +1,11 @@
 import { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
-import ChatBackgroud from './Backgroud/ChatBackgroud'
+import ChatBackground from './Background/ChatBackground'
 import ChatHeader from './Header/ChatHeader'
 import ChatDialog from './Dialog/ChatDialog'
 import ChatInput from './Input/ChatInput'
 import { ChatContext } from './ChatContext'
+import { getUsersQuantity, leaveChat } from '../../module/chat'
 import { getRoomId } from '../../module/utils/chat.util'
 import { getFromSessionStorage } from '../../script/sessionStorage'
 import './Chat.css'
@@ -13,7 +14,8 @@ export default function Chat() {
   const [chat, setChat] = useState({
     id: '',
     user: { name: '' },
-    title: 'Chat title',
+    users: { quantity: null },
+    title: 'Temp chat',
     messages: [],
     myMessagesQuantity: 0,
     scrollBottom: 0,
@@ -31,6 +33,35 @@ export default function Chat() {
       id: chatId,
       user: { ...prev.user, name },
     }))
+  }, [])
+
+  useEffect(() => {
+    if (!chat?.id) return
+
+    async function usersQuantity() {
+      const quantity = await getUsersQuantity(chat?.id)
+      setChat({ ...chat, users: { ...chat.users, quantity: quantity } })
+    }
+    usersQuantity()
+  }, [chat?.id])
+
+  useEffect(() => {
+    function handleBeforeUnload(e) {
+      e.preventDefault()
+      e.returnValue = ''
+    }
+
+    async function handlePageHide() {
+      await leaveChat()
+    }
+
+    window.addEventListener('beforeunload', handleBeforeUnload)
+    window.addEventListener('pagehide', handlePageHide)
+
+    return function cleanup() {
+      window.removeEventListener('beforeunload', handleBeforeUnload)
+      window.removeEventListener('pagehide', handlePageHide)
+    }
   }, [])
 
   useEffect(() => {
@@ -54,7 +85,7 @@ export default function Chat() {
         ref={chatWindowRef}
         onScroll={handleScroll}
       >
-        <ChatBackgroud />
+        <ChatBackground />
         <ChatHeader />
         <div className="chat_window_con">
           <ChatDialog />

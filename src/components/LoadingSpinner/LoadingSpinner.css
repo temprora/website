@@ -1,7 +1,12 @@
+.loading_spinner_con {
+  min-width: var(--loading-spinner-size);
+  min-height: var(--loading-spinner-size);
+  aspect-ratio: 1;
+}
+
 .loading_spinner {
   width: var(--loading-spinner-size);
   height: var(--loading-spinner-size);
-  aspect-ratio: 1;
   border-radius: 50%;
   border: 2px solid var(--text-color);
   border-top: 0;
