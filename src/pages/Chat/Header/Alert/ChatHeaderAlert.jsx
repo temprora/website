@@ -19,19 +19,20 @@ export default function ChatHeaderAlert({ setShowAlert }) {
   const shareUrl = useRef(
     `${window.location.origin}/join?room=${chat?.id}`
   ).current
-  const useNavigator = useNavigate()
+  const navigate = useNavigate()
   const [wantsToLeave, setWantsToLeave] = useState(false)
 
   useEffect(() => {
-    socket.on('you-left', (roomId) => {
+    function handleUserLeft(roomId) {
       const curRoomId = chat?.id
       if (curRoomId !== roomId) return
 
       deleteFromSessionStorage('chatId')
-      useNavigator('/')
-    })
+      navigate('/')
+    }
 
-    return () => socket.off('you-left')
+    socket.on('you-left', handleUserLeft)
+    return () => socket.off('you-left', handleUserLeft)
   }, [])
 
   async function share() {

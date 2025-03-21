@@ -12,7 +12,7 @@ export default function Join() {
   const [error, setError] = useState('')
   const [url] = useSearchParams()
   const roomId = useRef(url.get('room')).current
-  const navigator = useNavigate()
+  const navigate = useNavigate()
   const hasJoined = useRef(false)
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function Join() {
       await joinChat(roomId)
       saveToSessionStorage('chatId', roomId)
 
-      navigator('/chat')
+      navigate('/chat')
     }
 
     join()
