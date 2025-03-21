@@ -72,10 +72,10 @@ export default function Chat() {
   function handleScroll(e) {
     const { scrollTop, scrollHeight, clientHeight } = e.target
 
-    setChat({
-      ...chat,
+    setChat((prev) => ({
+      ...prev,
       scrollBottom: scrollHeight - (scrollTop + clientHeight),
-    })
+    }))
   }
 
   return (
