@@ -15,6 +15,7 @@
   flex: 1;
   margin: 0 auto;
   width: min(var(--chat-window-con-width), 100%);
+  height: calc(100% - var(--chat-header-height));
 }
 
 @media (max-width: 768px) {
@@ -28,5 +29,6 @@
   --chat-bg-color: light-dark(#583eff, #3a27b9);
   --chat-bd-color: light-dark(#5036f6, #9f94e8);
   --chat-bg-theme-color: light-dark(#d2d2d2, #363636);
+  --chat-bg-theme-hover-color: light-dark(#b7b7b7, #575757);
   --chat-bg-opa-color: light-dark(#583eff80, #2f1daa80);
 }

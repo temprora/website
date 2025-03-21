@@ -1,14 +1,13 @@
 @import url('../../../style/utils/line.css');
 
 .chat_header {
-  display: flex;
-  flex-direction: column;
   position: sticky;
   top: 0;
-  cursor: pointer;
+  padding: 0 10px;
   height: var(--chat-header-height);
   background-color: var(--bg-opa-color);
   backdrop-filter: blur(10px);
+  border-radius: 0 0 20px 20px;
 }
 
 .chat_header_title {
@@ -18,6 +17,28 @@
 .chat_header_users_quantity {
   font-size: 0.9em;
   color: var(--text-opa-color);
+}
+
+.chat_header_users_quantity .icon {
+  --icon-size: 15px;
+  --mar: 3px;
+}
+
+.chat_header_id {
+  padding: 0 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.chat_header_info_icon {
+  --icon-size: 25px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: var(--chat-bg-theme-hover-color);
+  }
 }
 
 .chat_header_alert_copy_btn {
