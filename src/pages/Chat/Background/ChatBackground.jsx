@@ -1,6 +1,6 @@
-import './/ChatBackgroud.css'
+import './ChatBackground.css'
 
-export default function ChatBackgroud() {
+export default function ChatBackground() {
   return (
     <>
       <div className="chat_background">

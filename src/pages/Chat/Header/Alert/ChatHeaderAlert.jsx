@@ -1,13 +1,14 @@
-import { useContext, useEffect, useRef } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { QRCodeSVG } from 'qrcode.react'
 import Alert from '../../../../components/Alert/Alert'
 import Input from '../../../../components/Input/Input'
 import Button from '../../../../components/Button/Button'
+import ChatHeaderAlertAreYouSure from './AreYouSure/ChatHeaderAlertAreYouSure'
 import { ChatContext } from '../../ChatContext'
 import { copyText } from '../../../../script/copy'
 import { shareData } from '../../../../script/share'
-import { leaveChat, socket } from '../../../../module/chat'
+import { socket } from '../../../../module/chat'
 import { deleteFromSessionStorage } from '../../../../script/sessionStorage'
 import CopyIcon from '../../../../assets/icons/copy.svg?react'
 import ShareIcon from '../../../../assets/icons/share.svg?react'
@@ -19,6 +20,7 @@ export default function ChatHeaderAlert({ setShowAlert }) {
     `${window.location.origin}/join?room=${chat?.id}`
   ).current
   const useNavigator = useNavigate()
+  const [wantsToLeave, setWantsToLeave] = useState(false)
 
   useEffect(() => {
     socket.on('you-left', (roomId) => {
@@ -31,10 +33,6 @@ export default function ChatHeaderAlert({ setShowAlert }) {
 
     return () => socket.off('you-left')
   }, [])
-
-  async function leave() {
-    await leaveChat()
-  }
 
   async function share() {
     const chatToShare = {
@@ -74,11 +72,10 @@ export default function ChatHeaderAlert({ setShowAlert }) {
             <div className="chat_header_alert_qr_code">
               <QRCodeSVG
                 value={shareUrl}
-                title={'Temprora QR Code'}
                 size={200}
                 bgColor={'transparent'}
                 fgColor={'#7f75e2'}
-                level={'L'}
+                level={'H'}
                 imageSettings={{
                   src: 'https://temprora.web.app/assets/temprora-XusK7Al3.jpg',
                   height: 50,
@@ -90,9 +87,12 @@ export default function ChatHeaderAlert({ setShowAlert }) {
             </div>
           </div>
           <hr className="x" />
-          <Button onClick={leave}>Leave</Button>
+          <Button onClick={() => setWantsToLeave(true)}>Leave</Button>
         </div>
       </Alert>
+      {wantsToLeave && (
+        <ChatHeaderAlertAreYouSure onClose={() => setWantsToLeave(false)} />
+      )}
     </>
   )
 }

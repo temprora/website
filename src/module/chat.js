@@ -31,6 +31,15 @@ export function leaveChat() {
   })
 }
 
+export function getUsersQuantity(roomId) {
+  if (!roomId) return { ok: false, error: 'Chat not found' }
+
+  return new Promise((res) => {
+    socket.emit('users-quantity', roomId)
+    socket.on('users-quantity', (quantity) => res(quantity))
+  })
+}
+
 export function sendMessage(message) {
   const roomId = getRoomId()
   if (!roomId) return { ok: false, error: 'Chat not found' }
