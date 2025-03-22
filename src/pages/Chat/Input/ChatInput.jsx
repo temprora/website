@@ -2,6 +2,7 @@ import { useContext, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import FileInfoPreview from '../../../components/FilePreview/Info/FileInfoPreview'
 import { ChatContext } from '../ChatContext'
+import { encrypt } from '../../../script/hash'
 import { sendMessage } from '../../../module/chat'
 import DownArrowIcon from '../../../assets/icons/down_arrow.svg?react'
 import XIcon from '../../../assets/icons/x.svg?react'
@@ -37,6 +38,8 @@ export default function ChatInput() {
   async function send() {
     if (!chat.id) navigate('/')
     if (!(userMessage.message || userMessage.file?.data)) return
+
+    userMessage.message = encrypt(userMessage.message)
 
     const newMessage = {
       author: chat.user.name,
