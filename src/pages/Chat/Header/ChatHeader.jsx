@@ -3,7 +3,6 @@ import { ChatContext } from '../ChatContext'
 import ChatHeaderAlert from './Alert/ChatHeaderAlert'
 import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner'
 import { socket } from '../../../module/chat'
-import { copyText } from '../../../script/copy'
 import GroupIcon from '../../../assets/icons/group.svg?react'
 import ChatIcon from '../../../assets/icons/chat.svg?react'
 import InfoIcon from '../../../assets/icons/info.svg?react'
@@ -37,10 +36,7 @@ export default function ChatHeader() {
             <span>{chat?.users?.quantity}</span>
           </div>
         )}
-        <div
-          className="chat_header_id list_x"
-          onClick={() => copyText(chat?.id)}
-        >
+        <div className="list_x">
           <ChatIcon className="icon" />
           <span>{chat?.id}</span>
         </div>

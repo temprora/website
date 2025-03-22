@@ -57,7 +57,7 @@ export default function ChatHeaderAlert({ setShowAlert }) {
             <div className="chat_header_alert_btns">
               <Button
                 className="d_f_ce chat_header_alert_copy_btn"
-                onClick={copyText(shareUrl)}
+                onClick={() => copyText(shareUrl)}
               >
                 <CopyIcon className="icon" />
               </Button>

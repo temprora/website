@@ -1,4 +1,5 @@
 import { timeToTime } from '../../../../../script/convert/time'
+import { decrypt } from '../../../../../script/hash'
 import './ChatDialogMessageText.css'
 
 export default function ChatDialogMessageText({ message }) {
@@ -15,7 +16,7 @@ export default function ChatDialogMessageText({ message }) {
             </div>
             <hr className="x" />
           </div>
-          <pre className="chat_message_pre">{message?.message}</pre>
+          <pre className="chat_message_pre">{decrypt(message?.message)}</pre>
         </div>
       </div>
     </>

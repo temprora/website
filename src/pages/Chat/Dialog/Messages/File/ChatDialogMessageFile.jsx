@@ -1,5 +1,6 @@
 import { timeToTime } from '../../../../../script/convert/time'
 import FileInfoPreview from '../../../../../components/FilePreview/Info/FileInfoPreview'
+import { decrypt } from '../../../../../script/hash'
 import './ChatDialogMessageFile.css'
 
 export default function ChatDialogMessageFile({ message }) {
@@ -21,7 +22,7 @@ export default function ChatDialogMessageFile({ message }) {
           {isImage && <img src={message?.file?.data} />}
           {!isImage && <FileInfoPreview file={message.file} preview={true} />}
           {message?.message && (
-            <pre className="chat_message_pre">{message?.message}</pre>
+            <pre className="chat_message_pre">{decrypt(message?.message)}</pre>
           )}
         </div>
       </div>
