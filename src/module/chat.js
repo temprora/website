@@ -17,10 +17,10 @@ export async function joinChat(roomId) {
   return new Promise((res) => {
     socket.emit('join-room', roomId, userName)
 
-    socket.on('empty-room', (roomId) =>
+    socket.once('empty-room', (roomId) =>
       res({ roomId, ok: false, error: 'Room is empty' })
     )
-    socket.on('you-joined', (roomId) => res({ roomId, ok: true }))
+    socket.once('you-joined', (roomId) => res({ roomId, ok: true }))
   })
 }
 
