@@ -10,13 +10,17 @@ export function createChat() {
   })
 }
 
-export function joinChat(chatId) {
+export async function joinChat(roomId) {
   const userName = getUserName()
   if (!userName) return { ok: false, error: 'User not found' }
 
   return new Promise((res) => {
-    socket.emit('join-room', chatId, userName)
-    socket.on('you-joined', (roomId) => res(roomId))
+    socket.emit('join-room', roomId, userName)
+
+    socket.on('empty-room', (roomId) =>
+      res({ roomId, ok: false, error: 'Room is empty' })
+    )
+    socket.on('you-joined', (roomId) => res({ roomId, ok: true }))
   })
 }
 

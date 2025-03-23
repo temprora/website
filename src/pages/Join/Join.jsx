@@ -22,9 +22,20 @@ export default function Join() {
     hasJoined.current = true
 
     async function join() {
-      await joinChat(roomId)
-      saveToSessionStorage('chatId', roomId)
+      const res = await joinChat(roomId)
+      if (!res.ok) {
+        setError(
+          <div className="list_x">
+            <div>Chat does not exist</div>
+            <Link to="/join-or-create">
+              <b>create new one</b>
+            </Link>
+          </div>
+        )
+        return
+      }
 
+      saveToSessionStorage('chatId', roomId)
       navigate('/chat')
     }
 
