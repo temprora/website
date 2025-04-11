@@ -1,0 +1,49 @@
+@import url('../../../style/utils/animations.css');
+
+*:has(.markdown_preview_img) {
+  &::-webkit-scrollbar {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.markdown_preview_img {
+  position: fixed;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.markdown_preview_img img {
+  width: 95%;
+  object-fit: contain;
+  border-radius: 10px;
+  background-color: var(--bg-color);
+}
+
+.fullscreen_backdrop {
+  z-index: 1;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: zoom-out;
+  background: var(--markdown-img-bg-color);
+  transition: opacity 0.5s ease;
+  animation: opaTo1 0.2s ease forwards;
+}
+
+.markdown_preview_target {
+  cursor: zoom-in;
+}
+
+:root {
+  --markdown-img-bg-color: light-dark(#fff8, #0008);
+}

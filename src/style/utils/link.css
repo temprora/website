@@ -2,3 +2,8 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+
+:root {
+  --link-color: light-dark(#1717ff, #3232ff);
+  --link-hover-color: light-dark(#8484ff, #7878ef);
+}

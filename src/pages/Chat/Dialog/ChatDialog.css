@@ -1,5 +1,6 @@
 .chat_dialog {
   flex: 1;
+  padding: 5px 0;
 }
 
 .chat_dialog_con {

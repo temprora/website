@@ -18,5 +18,5 @@
 }
 
 :root {
-  --selection-bg-color: light-dark(#ffffff33, #00000033);
+  --selection-bg-color: light-dark(#80808080, #80808080);
 }

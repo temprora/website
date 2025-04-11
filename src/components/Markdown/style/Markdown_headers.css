@@ -1,0 +1,51 @@
+.markdown_parse_con {
+  h1 {
+    font-size: var(--markdown-h1-fz);
+    font-weight: var(--markdown-h1-lw);
+  }
+
+  h2 {
+    font-size: var(--markdown-h2-fz);
+    font-weight: var(--markdown-h2-lw);
+  }
+
+  h3 {
+    font-size: var(--markdown-h3-fz);
+    font-weight: var(--markdown-h3-lw);
+  }
+
+  h4 {
+    font-size: var(--markdown-h4-fz);
+    font-weight: var(--markdown-h4-lw);
+  }
+
+  h5 {
+    font-size: var(--markdown-h5-fz);
+    font-weight: var(--markdown-h5-lw);
+  }
+
+  h6 {
+    font-size: var(--markdown-h6-fz);
+    font-weight: var(--markdown-h6-lw);
+  }
+}
+
+:root {
+  --markdown-h1-fz: 2.5em;
+  --markdown-h1-lw: bold;
+
+  --markdown-h2-fz: 1.8em;
+  --markdown-h2-lw: 600;
+
+  --markdown-h3-fz: 1.5em;
+  --markdown-h3-lw: 500;
+
+  --markdown-h4-fz: 1.3em;
+  --markdown-h4-lw: 500;
+
+  --markdown-h5-fz: 1.1em;
+  --markdown-h5-lw: 400;
+
+  --markdown-h6-fz: 1em;
+  --markdown-h6-lw: 400;
+}

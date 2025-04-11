@@ -1,0 +1,31 @@
+@import url('../../../style/utils/link.css');
+
+.markdown_parse_con {
+  b,
+  strong {
+    color: initial;
+  }
+
+  a {
+    color: var(--link-color);
+
+    &:hover {
+      color: var(--link-hover-color);
+    }
+  }
+
+  blockquote {
+    padding-left: var(--markdown-blockquote-pd-left);
+    word-wrap: break-word;
+    border-left: var(--markdown-blockquote-bd-left) solid
+      var(--markdown-blockquote-bd-color);
+    border-radius: var(--markdown-blockquote-bd-radius);
+  }
+}
+
+:root {
+  --markdown-blockquote-pd-left: 10px;
+  --markdown-blockquote-bd-left: 0.3em;
+  --markdown-blockquote-bd-radius: 5px;
+  --markdown-blockquote-bd-color: light-dark(#4c94eb, #4b5563);
+}

@@ -35,7 +35,9 @@ export default function Join() {
         return
       }
 
-      saveToSessionStorage('chatId', roomId)
+      saveToSessionStorage('chatId', res.roomId)
+      saveToSessionStorage('userId', res.userId)
+
       navigate('/chat')
     }
 

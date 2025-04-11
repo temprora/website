@@ -27,7 +27,7 @@
 
 :root {
   --chat-window-con-width: 777px;
-  --chat-bg-color: light-dark(#583eff, #3a27b9);
+  --chat-bg-color: light-dark(#c8bfff, #13056c);
   --chat-bd-color: light-dark(#5036f6, #9f94e8);
   --chat-bg-theme-color: light-dark(#d2d2d2, #363636);
   --chat-bg-theme-hover-color: light-dark(#b7b7b7, #575757);

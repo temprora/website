@@ -28,6 +28,7 @@ export default function ChatHeaderAlert({ setShowAlert }) {
       if (curRoomId !== roomId) return
 
       deleteFromSessionStorage('chatId')
+      deleteFromSessionStorage('userId')
       navigate('/')
     }
 
@@ -73,7 +74,7 @@ export default function ChatHeaderAlert({ setShowAlert }) {
             <div className="chat_header_alert_qr_code">
               <QRCodeSVG
                 value={shareUrl}
-                size={200}
+                size={260}
                 bgColor={'transparent'}
                 fgColor={'#7f75e2'}
                 level={'H'}
