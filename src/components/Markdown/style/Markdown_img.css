@@ -1,0 +1,10 @@
+.markdown_parse_con {
+  img {
+    max-width: 100%;
+    border-radius: var(--markdown-img-bd-radius) !important;
+  }
+}
+
+:root {
+  --markdown-img-bd-radius: 20px;
+}

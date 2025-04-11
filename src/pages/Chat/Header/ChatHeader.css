@@ -9,6 +9,7 @@
   background-color: var(--bg-opa-color);
   backdrop-filter: blur(10px);
   border-radius: 0 0 20px 20px;
+  z-index: 1;
 }
 
 .chat_header_title {
@@ -25,6 +26,7 @@
   --mar: 3px;
 }
 
+.chat_header_video_icon,
 .chat_header_info_icon {
   --icon-size: 25px;
   cursor: pointer;

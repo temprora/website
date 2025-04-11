@@ -5,11 +5,16 @@
   display: flex;
 }
 
+.chat_input.dragging .chat_input_con {
+  border: 1px solid var(--chat-bd-color);
+}
+
 .chat_input_con {
   display: flex;
   align-items: flex-end;
   width: 100%;
   padding: 5px;
+  border: 1px solid transparent;
   border-radius: 20px;
   background-color: var(--chat-bg-theme-color);
 }

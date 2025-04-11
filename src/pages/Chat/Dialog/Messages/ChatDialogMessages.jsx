@@ -1,25 +1,81 @@
-import { useContext } from 'react'
+import { useContext, useMemo } from 'react'
 import { ChatContext } from '../../ChatContext'
+import ChatDialogMessage from './Message/ChatDialogMessage'
 import ChatDialogMessageAlert from './Alert/ChatDialogMessageAlert'
-import ChatDialogMessageText from './Text/ChatDialogMessageText'
-import ChatDialogMessageFile from './File/ChatDialogMessageFile'
+import { isAuthor } from '../../../../module/utils/chat.util'
+import './ChatDialogMessages.css'
 
 export default function ChatDialogMessages() {
   const { chat } = useContext(ChatContext)
+  const groups = useMemo(() => {
+    const messages = chat?.messages || []
+    const grouped = []
+    let current = []
+
+    messages.forEach((msg) => {
+      if (msg.type === 'alert') {
+        if (current.length) grouped.push(current)
+
+        grouped.push([msg])
+        current = []
+        return
+      }
+
+      if (
+        current.length === 0 ||
+        current[current.length - 1]?.author?.id === msg?.author?.id
+      ) {
+        current.push(msg)
+      } else {
+        grouped.push(current)
+        current = [msg]
+      }
+    })
+
+    if (current.length) grouped.push(current)
+
+    return grouped
+  }, [chat?.messages])
 
   return (
     <>
-      {chat?.messages.map((message, i) => {
-        if (message.type === 'alert')
+      {groups.map((group, i) => {
+        if (group[0].type === 'alert') {
           return (
-            <ChatDialogMessageAlert key={message.id || i} message={message} />
+            <ChatDialogMessageAlert key={group[0].id || i} message={group[0]} />
           )
+        }
 
-        if (message?.file?.data)
-          return (
-            <ChatDialogMessageFile key={message.id || i} message={message} />
-          )
-        return <ChatDialogMessageText key={message.id || i} message={message} />
+        const isMine = isAuthor(group[0]?.author?.id)
+
+        return (
+          <div
+            key={i}
+            className="chat_message_group"
+            mine={isMine ? 'true' : 'false'}
+          >
+            <div className="chat_message_group_messages">
+              {group.map((message, j) => {
+                const key = message.id || `${i}-${j}`
+
+                const showAuthor = j === 0
+
+                return (
+                  <ChatDialogMessage
+                    key={key}
+                    message={message}
+                    showAuthor={showAuthor}
+                  />
+                )
+              })}
+            </div>
+            <div className="chat_message_groug_side">
+              <div className="chat_message_groug_side_circle d_f_ce">
+                <span>{group[0]?.author?.name[0]}</span>
+              </div>
+            </div>
+          </div>
+        )
       })}
     </>
   )

@@ -5,6 +5,7 @@ import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner'
 import { socket } from '../../../module/chat'
 import GroupIcon from '../../../assets/icons/group.svg?react'
 import ChatIcon from '../../../assets/icons/chat.svg?react'
+import VideoIcon from '../../../assets/icons/video.svg?react'
 import InfoIcon from '../../../assets/icons/info.svg?react'
 import './ChatHeader.css'
 
@@ -40,10 +41,13 @@ export default function ChatHeader() {
           <ChatIcon className="icon" />
           <span>{chat?.id}</span>
         </div>
-        <InfoIcon
-          className="chat_header_info_icon icon"
-          onClick={() => setShowAlert(true)}
-        />
+        <div className="list_x d_f_ai_ce">
+          <VideoIcon className="chat_header_video_icon icon" />
+          <InfoIcon
+            className="chat_header_info_icon icon"
+            onClick={() => setShowAlert(true)}
+          />
+        </div>
       </div>
       {showAlert && <ChatHeaderAlert setShowAlert={setShowAlert} />}
     </>

@@ -1,14 +1,11 @@
-import {
-  deleteFromSessionStorage,
-  getFromSessionStorage,
-} from '../../script/sessionStorage'
+import { getFromSessionStorage } from '../../script/sessionStorage'
 
 export function getRoomId() {
   return getFromSessionStorage('chatId')
 }
 
-export function deleteRoomId() {
-  return deleteFromSessionStorage('chatId')
+export function getUserId() {
+  return getFromSessionStorage('userId')
 }
 
 export function getUserName() {
@@ -21,4 +18,8 @@ export function getLeftChatMessage(name) {
 
 export function getJoinedChatMessage(name) {
   return { type: 'alert', message: `${name} joined the chat` }
+}
+
+export function isAuthor(userId) {
+  return getUserId() === userId
 }

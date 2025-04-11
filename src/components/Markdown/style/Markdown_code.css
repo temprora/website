@@ -1,0 +1,24 @@
+.markdown_parse_con {
+  pre:has(code) {
+    padding: var(--markdown-code-pd);
+    border-radius: var(--markdown-code-pre-bd-radius);
+    overflow: auto hidden;
+    background-color: var(--markdown-code-bg-color);
+  }
+
+  code {
+    color: initial;
+    border-radius: var(--markdown-code-bd-radius);
+    background-color: var(--markdown-code-bg-color);
+    font-family: var(--markdown-code-ff) !important;
+  }
+}
+
+:root {
+  --markdown-code-pd: 10px 5px;
+  --markdown-code-bd-radius: 5px;
+  --markdown-code-pre-bd-radius: 20px;
+  --markdown-code-ff: 'JetBrains Mono', 'Fira Code', 'Cascadia Code',
+    'IBM Plex Mono', 'Source Code Pro', monospace;
+  --markdown-code-bg-color: light-dark(#d2e4fb, #393939);
+}

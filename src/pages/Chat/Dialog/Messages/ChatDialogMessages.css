@@ -1,0 +1,49 @@
+.chat_message_group {
+  display: flex;
+
+  &[mine='true'] {
+    & .chat_message_group_messages {
+      padding-right: var(--mar);
+    }
+  }
+
+  &[mine='false'] {
+    flex-direction: row-reverse;
+
+    & .chat_message_group_messages {
+      padding-left: var(--mar);
+    }
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
+
+.chat_message_group_messages {
+  width: calc(100% - var(--chat-message-group-side-size));
+}
+
+.chat_message_groug_side {
+  width: var(--chat-message-group-side-size);
+}
+
+.chat_message_groug_side_circle {
+  position: sticky;
+  top: calc(var(--chat-header-height) + 5px);
+  border-radius: 50%;
+  border: 1px solid var(--chat-bd-color);
+  background-color: var(--chat-bg-theme-color);
+  width: var(--chat-message-group-side-size);
+  height: var(--chat-message-group-side-size);
+}
+
+.chat_message_groug_side_circle span {
+  line-height: 1;
+  font-size: 0.9em;
+  vertical-align: baseline;
+}
+
+:root {
+  --chat-message-group-side-size: 40px;
+}

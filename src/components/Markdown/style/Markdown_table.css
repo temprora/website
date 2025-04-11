@@ -1,0 +1,24 @@
+.markdown_parse_con {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--markdown-table-fz);
+  }
+
+  th,
+  td {
+    padding: var(--markdown-table-pd);
+    border: var(--markdown-table-bd-width) solid var(--markdown-table-bd-color);
+  }
+
+  th {
+    font-weight: bold;
+  }
+}
+
+:root {
+  --markdown-table-fz: 0.95em;
+  --markdown-table-pd: 5px;
+  --markdown-table-bd-width: 1px;
+  --markdown-table-bd-color: light-dark(#4c94eb, #4b5563);
+}

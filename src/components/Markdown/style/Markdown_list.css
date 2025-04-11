@@ -1,0 +1,14 @@
+.markdown_parse_con {
+  ul,
+  ol {
+    padding-left: var(--markdown-list-pd-left);
+
+    & > li:not(:last-child) {
+      margin-bottom: var(--mar) !important;
+    }
+  }
+}
+
+:root {
+  --markdown-list-pd-left: 20px;
+}
