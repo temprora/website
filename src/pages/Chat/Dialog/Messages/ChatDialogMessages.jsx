@@ -69,8 +69,8 @@ export default function ChatDialogMessages() {
                 )
               })}
             </div>
-            <div className="chat_message_groug_side">
-              <div className="chat_message_groug_side_circle d_f_ce">
+            <div className="chat_message_group_side">
+              <div className="chat_message_group_side_circle d_f_ce">
                 <span>{group[0]?.author?.name[0]}</span>
               </div>
             </div>

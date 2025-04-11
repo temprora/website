@@ -24,11 +24,11 @@
   width: calc(100% - var(--chat-message-group-side-size));
 }
 
-.chat_message_groug_side {
+.chat_message_group_side {
   width: var(--chat-message-group-side-size);
 }
 
-.chat_message_groug_side_circle {
+.chat_message_group_side_circle {
   position: sticky;
   top: calc(var(--chat-header-height) + 5px);
   border-radius: 50%;
@@ -38,7 +38,7 @@
   height: var(--chat-message-group-side-size);
 }
 
-.chat_message_groug_side_circle span {
+.chat_message_group_side_circle span {
   line-height: 1;
   font-size: 0.9em;
   vertical-align: baseline;
